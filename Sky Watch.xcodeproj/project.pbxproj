@@ -200,6 +200,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Kurt Zoglmann";
 				TargetAttributes = {
+					6E03477C185413280080CE5D = {
+						DevelopmentTeam = G749KU4R78;
+					};
 					6E03479D185413290080CE5D = {
 						TestTargetID = 6E03477C185413280080CE5D;
 					};
@@ -379,9 +382,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sky Watch/Sky Watch-Prefix.pch";
 				INFOPLIST_FILE = "Sky Watch/Sky Watch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -392,9 +397,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sky Watch/Sky Watch-Prefix.pch";
 				INFOPLIST_FILE = "Sky Watch/Sky Watch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -461,6 +468,7 @@
 				6E0347B1185413290080CE5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6E0347B2185413290080CE5D /* Build configuration list for PBXNativeTarget "Sky WatchTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +477,7 @@
 				6E0347B4185413290080CE5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
