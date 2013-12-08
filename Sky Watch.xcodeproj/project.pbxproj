@@ -21,6 +21,14 @@
 		6E0347A2185413290080CE5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E034784185413280080CE5D /* UIKit.framework */; };
 		6E0347AA185413290080CE5D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E0347A8185413290080CE5D /* InfoPlist.strings */; };
 		6E0347AC185413290080CE5D /* Sky_WatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0347AB185413290080CE5D /* Sky_WatchTests.m */; };
+		6E1DCF1118542261009885A7 /* KZCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF1018542261009885A7 /* KZCalculator.m */; };
+		6E1DCF1418542635009885A7 /* KZPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF1318542635009885A7 /* KZPosition.m */; };
+		6E1DCF171854D5D4009885A7 /* KZSimpleDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF161854D5D4009885A7 /* KZSimpleDate.m */; };
+		6E1DCF1A1854D7C4009885A7 /* KZSimpleTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF191854D7C4009885A7 /* KZSimpleTime.m */; };
+		6E1DCF1D1854DC03009885A7 /* KZResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF1C1854DC03009885A7 /* KZResult.m */; };
+		6E1DCF201854DC4A009885A7 /* KZEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF1F1854DC4A009885A7 /* KZEvent.m */; };
+		6E1DCF231854DE9A009885A7 /* KZMoonEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF221854DE9A009885A7 /* KZMoonEvent.m */; };
+		6E1DCF26185507B4009885A7 /* KZGPSCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF25185507B4009885A7 /* KZGPSCoordinate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +61,22 @@
 		6E0347A7185413290080CE5D /* Sky WatchTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Sky WatchTests-Info.plist"; sourceTree = "<group>"; };
 		6E0347A9185413290080CE5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6E0347AB185413290080CE5D /* Sky_WatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sky_WatchTests.m; sourceTree = "<group>"; };
+		6E1DCF0F18542261009885A7 /* KZCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZCalculator.h; sourceTree = "<group>"; };
+		6E1DCF1018542261009885A7 /* KZCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZCalculator.m; sourceTree = "<group>"; };
+		6E1DCF1218542635009885A7 /* KZPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZPosition.h; sourceTree = "<group>"; };
+		6E1DCF1318542635009885A7 /* KZPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZPosition.m; sourceTree = "<group>"; };
+		6E1DCF151854D5D4009885A7 /* KZSimpleDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZSimpleDate.h; sourceTree = "<group>"; };
+		6E1DCF161854D5D4009885A7 /* KZSimpleDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZSimpleDate.m; sourceTree = "<group>"; };
+		6E1DCF181854D7C4009885A7 /* KZSimpleTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZSimpleTime.h; sourceTree = "<group>"; };
+		6E1DCF191854D7C4009885A7 /* KZSimpleTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZSimpleTime.m; sourceTree = "<group>"; };
+		6E1DCF1B1854DC03009885A7 /* KZResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZResult.h; sourceTree = "<group>"; };
+		6E1DCF1C1854DC03009885A7 /* KZResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZResult.m; sourceTree = "<group>"; };
+		6E1DCF1E1854DC49009885A7 /* KZEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZEvent.h; sourceTree = "<group>"; };
+		6E1DCF1F1854DC4A009885A7 /* KZEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZEvent.m; sourceTree = "<group>"; };
+		6E1DCF211854DE9A009885A7 /* KZMoonEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZMoonEvent.h; sourceTree = "<group>"; };
+		6E1DCF221854DE9A009885A7 /* KZMoonEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZMoonEvent.m; sourceTree = "<group>"; };
+		6E1DCF24185507B4009885A7 /* KZGPSCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZGPSCoordinate.h; sourceTree = "<group>"; };
+		6E1DCF25185507B4009885A7 /* KZGPSCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZGPSCoordinate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +142,7 @@
 				6E034795185413280080CE5D /* KZViewController.h */,
 				6E034796185413280080CE5D /* KZViewController.m */,
 				6E034798185413280080CE5D /* Images.xcassets */,
+				6E1DCF0E18542240009885A7 /* Calculations Related */,
 				6E034787185413280080CE5D /* Supporting Files */,
 			);
 			path = "Sky Watch";
@@ -150,6 +175,29 @@
 				6E0347A8185413290080CE5D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6E1DCF0E18542240009885A7 /* Calculations Related */ = {
+			isa = PBXGroup;
+			children = (
+				6E1DCF0F18542261009885A7 /* KZCalculator.h */,
+				6E1DCF1018542261009885A7 /* KZCalculator.m */,
+				6E1DCF1218542635009885A7 /* KZPosition.h */,
+				6E1DCF1318542635009885A7 /* KZPosition.m */,
+				6E1DCF151854D5D4009885A7 /* KZSimpleDate.h */,
+				6E1DCF161854D5D4009885A7 /* KZSimpleDate.m */,
+				6E1DCF181854D7C4009885A7 /* KZSimpleTime.h */,
+				6E1DCF191854D7C4009885A7 /* KZSimpleTime.m */,
+				6E1DCF1B1854DC03009885A7 /* KZResult.h */,
+				6E1DCF1C1854DC03009885A7 /* KZResult.m */,
+				6E1DCF1E1854DC49009885A7 /* KZEvent.h */,
+				6E1DCF1F1854DC4A009885A7 /* KZEvent.m */,
+				6E1DCF211854DE9A009885A7 /* KZMoonEvent.h */,
+				6E1DCF221854DE9A009885A7 /* KZMoonEvent.m */,
+				6E1DCF24185507B4009885A7 /* KZGPSCoordinate.h */,
+				6E1DCF25185507B4009885A7 /* KZGPSCoordinate.m */,
+			);
+			name = "Calculations Related";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,8 +301,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E1DCF231854DE9A009885A7 /* KZMoonEvent.m in Sources */,
+				6E1DCF1118542261009885A7 /* KZCalculator.m in Sources */,
+				6E1DCF1D1854DC03009885A7 /* KZResult.m in Sources */,
+				6E1DCF201854DC4A009885A7 /* KZEvent.m in Sources */,
 				6E03478D185413280080CE5D /* main.m in Sources */,
+				6E1DCF1A1854D7C4009885A7 /* KZSimpleTime.m in Sources */,
+				6E1DCF26185507B4009885A7 /* KZGPSCoordinate.m in Sources */,
+				6E1DCF1418542635009885A7 /* KZPosition.m in Sources */,
 				6E034791185413280080CE5D /* KZAppDelegate.m in Sources */,
+				6E1DCF171854D5D4009885A7 /* KZSimpleDate.m in Sources */,
 				6E034797185413280080CE5D /* KZViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
