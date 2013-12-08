@@ -98,7 +98,6 @@ static const double K1 = 15.0 * DR * 1.0027379;
 - (KZResult*) calculateWithGps:(KZGPSCoordinate*) gps
                     utcToLocal:(int) utcToLocal
                           date:(KZSimpleDate*) date {
-    _SUNRISE_SUNSET_OFFSET =[[KZOffset alloc] initWithFromHorizon: 0     accountForAtmosphericRefraction: YES];
     
     double timeZoneShift = -1  * ((double)utcToLocal)/HOURS_IN_DAY;
     
@@ -106,8 +105,8 @@ static const double K1 = 15.0 * DR * 1.0027379;
     double daysFromEpoc = (julianDate - NEW_STANDARD_EPOC) + 0.5;
     
     
-    double LST     = [self calculateLSTWithDaysFromEpoc:daysFromEpoc   timeZoneShift:timeZoneShift longitude:gps.longitude];
-    double nextLST = [self calculateLSTWithDaysFromEpoc:daysFromEpoc+1 timeZoneShift:timeZoneShift longitude:gps.longitude];
+    double lst     = [self calculateLstWithDaysFromEpoc:daysFromEpoc   timeZoneShift:timeZoneShift longitude:gps.longitude];
+    double nextLst = [self calculateLstWithDaysFromEpoc:daysFromEpoc+1 timeZoneShift:timeZoneShift longitude:gps.longitude];
     
     daysFromEpoc = daysFromEpoc + timeZoneShift;
     KZResult* ret = [KZResult new];
@@ -118,11 +117,11 @@ static const double K1 = 15.0 * DR * 1.0027379;
     KZPosition* sunTomorrow = [self calculateSunPosition:daysFromEpoc+1];
     sunTomorrow = [self ensureSecondAscentionGreaterFromFirst:sunToday second:sunTomorrow];
     
-    ret.sun                  = [self calculateWithOffset:_SUNRISE_SUNSET_OFFSET gps:gps lst:LST today:sunToday tomorrow: sunTomorrow];
-    ret.goldenHour           = [self calculateWithOffset:_GOLDEN_HOUR_OFFSET gps:gps lst:LST today:sunToday tomorrow:sunTomorrow];
-    ret.civilTwilight        = [self calculateWithOffset:_CIVIL_TWILIGHT_OFFSET gps:gps lst:LST today:sunToday tomorrow:sunTomorrow];
-    ret.nauticalTwilight     = [self calculateWithOffset:_NAUTICAL_TWILIGHT_OFFSET gps:gps lst:LST today:sunToday tomorrow:sunTomorrow];
-    ret.astronomicalTwilight = [self calculateWithOffset:_ASTRONOMICAL_TWILIGHT_OFFSET gps:gps lst:LST today:sunToday tomorrow:sunTomorrow];
+    ret.sun                  = [self calculateWithOffset:_SUNRISE_SUNSET_OFFSET gps:gps lst:lst today:sunToday tomorrow: sunTomorrow];
+    ret.goldenHour           = [self calculateWithOffset:_GOLDEN_HOUR_OFFSET gps:gps lst:lst today:sunToday tomorrow:sunTomorrow];
+    ret.civilTwilight        = [self calculateWithOffset:_CIVIL_TWILIGHT_OFFSET gps:gps lst:lst today:sunToday tomorrow:sunTomorrow];
+    ret.nauticalTwilight     = [self calculateWithOffset:_NAUTICAL_TWILIGHT_OFFSET gps:gps lst:lst today:sunToday tomorrow:sunTomorrow];
+    ret.astronomicalTwilight = [self calculateWithOffset:_ASTRONOMICAL_TWILIGHT_OFFSET gps:gps lst:lst today:sunToday tomorrow:sunTomorrow];
     
     
     //calculate today moon
@@ -130,7 +129,7 @@ static const double K1 = 15.0 * DR * 1.0027379;
     KZPosition* moonTomorrow = [self calculateMoonPosition:daysFromEpoc+1];
     moonTomorrow = [self ensureSecondAscentionGreaterFromFirst:moonToday second:moonTomorrow];
     ret.moonToday = [[KZMoonEvent alloc] initWithEvent:
-                        [self calculateWithOffset:_MOONRISE_MOONSET_OFFSET gps:gps lst:LST today:moonToday tomorrow:moonTomorrow]];
+                        [self calculateWithOffset:_MOONRISE_MOONSET_OFFSET gps:gps lst:lst today:moonToday tomorrow:moonTomorrow]];
     ret.moonToday.ageInDays = [self calculateMoonsAgeWithJulianDate:julianDate+1];
     ret.moonToday.illuminationPercent = [self calculateMoonIlluminationPercentFromAge:ret.moonToday.ageInDays];
     
@@ -140,7 +139,7 @@ static const double K1 = 15.0 * DR * 1.0027379;
     KZPosition* moonDayAfter = [self calculateMoonPosition:daysFromEpoc+2];
     moonDayAfter = [self ensureSecondAscentionGreaterFromFirst:moonTomorrow second:moonDayAfter];
     ret.moonTomorrow = [[KZMoonEvent alloc] initWithEvent:
-                        [self calculateWithOffset:_MOONRISE_MOONSET_OFFSET gps:gps lst:nextLST today:moonTomorrow tomorrow:moonDayAfter]];
+                        [self calculateWithOffset:_MOONRISE_MOONSET_OFFSET gps:gps lst:nextLst today:moonTomorrow tomorrow:moonDayAfter]];
     ret.moonTomorrow.ageInDays = [self calculateMoonsAgeWithJulianDate:(julianDate+2)];
     ret.moonTomorrow.illuminationPercent = [self calculateMoonIlluminationPercentFromAge:ret.moonTomorrow.ageInDays];
     
@@ -181,11 +180,11 @@ static const double K1 = 15.0 * DR * 1.0027379;
 
 - (KZEvent*) calculateWithOffset:(KZOffset*) offset
                              gps:(KZGPSCoordinate*) gps
-                             lst:(double) LST
+                             lst:(double) lst
                            today:(KZPosition*) today
                         tomorrow:(KZPosition*) tomorrow {
     
-    double previousAscention = today.rightAscention;
+    double previousAscention   = today.rightAscention;
     double previousDeclination = today.declination;
     
     double changeInAscention   = tomorrow.rightAscention - today.rightAscention;
@@ -210,7 +209,7 @@ static const double K1 = 15.0 * DR * 1.0027379;
                                 declination: declination
                                   previousV: previousV
                                         gps: gps
-                                        lst: LST];
+                                        lst: lst];
         
         if(intermediateTestResult.rise != nil) {
             testResult.rise       = intermediateTestResult.rise;
@@ -270,9 +269,9 @@ static const double K1 = 15.0 * DR * 1.0027379;
     //ie the sun slips below the horizon at sunset before you actually see it go below the horizon
     double zenithDistance = DR * (offset.accountForAtmosphericRefraction ? 90.833 : 90.0);
     
-    double S = sin(gps.latitude*DR);
-    double C = cos(gps.latitude*DR);
-    double Z = cos(zenithDistance) + offset.fromHorizon*DR;
+    double s = sin(gps.latitude*DR);
+    double c = cos(gps.latitude*DR);
+    double z = cos(zenithDistance) + offset.fromHorizon*DR;
     
     double L0 = LST + hourOfDay*K1;
     double L2 = L0 + K1;
@@ -284,29 +283,29 @@ static const double K1 = 15.0 * DR * 1.0027379;
     double D1 = (declination+previousDeclination) / 2.0; //  declination at half hour
     
     if (hourOfDay == 0) {
-        previousV = S * sin(previousDeclination) + C*cos(previousDeclination)*cos(H0)-Z;
+        previousV = s * sin(previousDeclination) + c*cos(previousDeclination)*cos(H0)-z;
     }
     
-    double V = S*sin(declination) + C*cos(declination)*cos(H2) - Z;
+    double v = s*sin(declination) + c*cos(declination)*cos(H2) - z;
     
-    if([self objectCrossedHorizonWithPreviousV:previousV V:V]) {
-        double V1 = S*sin(D1) + C*cos(D1)*cos(H1) - Z;
+    if([self objectCrossedHorizonWithPreviousV:previousV V:v]) {
+        double v1 = s*sin(D1) + c*cos(D1)*cos(H1) - z;
         
-        double A = 2*V - 4*V1 + 2*previousV;
-        double B = 4*V1 - 3*previousV - V;
-        double D = B*B - 4*A*previousV;
+        double a = 2*v - 4*v1 + 2*previousV;
+        double b = 4*v1 - 3*previousV - v;
+        double d = b*b - 4*a*previousV;
         
-        if (D >= 0) {
-            D = sqrt(D);
+        if (d >= 0) {
+            d = sqrt(d);
             
-            double E = (-B+D) / (2*A);
-            if (E>1 || E<0) {
-                E = (-B-D) / (2*A);
+            double e = (-b+d) / (2*a);
+            if (e>1 || e<0) {
+                e = (-b-d) / (2*a);
             }
             
-            double H7 = H0 + E*(H2-H0);
+            double H7 = H0 + e*(H2-H0);
             double N7 = -1 * cos(D1)*sin(H7);
-            double D7 = C*sin(D1) - S*cos(D1)*cos(H7);
+            double D7 = c*sin(D1) - s*cos(D1)*cos(H7);
             double azimuth = atan(N7/D7)/DR;
             
             if(D7 < 0) {
@@ -322,17 +321,17 @@ static const double K1 = 15.0 * DR * 1.0027379;
             }
             
             
-            double T3=hourOfDay + E + 1/120; //Round off
+            double T3=hourOfDay + e + 1/120; //Round off
             int hour = (int) T3;
             int min = (int) ((T3-hour)*60);
             
             
-            if (previousV<0 && V>0) {
+            if (previousV<0 && v>0) {
                 ret.rise = [[KZSimpleTime alloc] initWithHour:hour minute:min];
                 ret.riseAzimuth = azimuth;
             }
             
-            if (previousV>0 && V<0) {
+            if (previousV>0 && v<0) {
                 ret.set = [[KZSimpleTime alloc] initWithHour:hour minute:min];
                 ret.setAzimuth = azimuth;
             }
@@ -340,17 +339,20 @@ static const double K1 = 15.0 * DR * 1.0027379;
         
     }
     
-    ret.V = V;
+    ret.V = v;
     return ret;
     
 }
 
 
-- (BOOL) objectCrossedHorizonWithPreviousV:(double)previousV V:(double)V {
-    return [self sgnWithVal:previousV] != [self sgnWithVal:V];
+- (BOOL) objectCrossedHorizonWithPreviousV:(double)previousV V:(double)v {
+    return [self signWithVal:previousV] != [self signWithVal:v];
 }
 
-- (int) sgnWithVal:(float) val {
+/**
+ @returns 0 when value <= 0 otherwise 1
+ */
+- (int) signWithVal:(float) val {
     return val == 0 ? 0 : (val > 0 ? 1 : 0);
 }
 
@@ -627,7 +629,7 @@ static const double K1 = 15.0 * DR * 1.0027379;
  * Calculates RA (Right Ascension) and Dec (Declination) from
  * intermediate calculations
  */
-- (KZPosition*) calculatePositionWithMeanLongitude:(double) meanLongitude U:(double)u V:(double)v W:(double)w {
+- (KZPosition*) calculatePositionWithMeanLongitude:(double)meanLongitude U:(double)u V:(double)v W:(double)w {
     double s = w / sqrt(u - v*v);
     double rightAscention = meanLongitude + asin(s);
     
@@ -642,7 +644,7 @@ static const double K1 = 15.0 * DR * 1.0027379;
 /**
  * calculate LST at 0h zone time
  */
-- (double) calculateLSTWithDaysFromEpoc:(double)daysFromEpoc timeZoneShift:(double)timeZoneShift longitude:(double)longitude {
+- (double) calculateLstWithDaysFromEpoc:(double)daysFromEpoc timeZoneShift:(double)timeZoneShift longitude:(double)longitude {
     double t = longitude/360;
     double ret = daysFromEpoc/36525.0;
     
@@ -673,10 +675,10 @@ static const double K1 = 15.0 * DR * 1.0027379;
     int offset = 0;
     BOOL after1583 = date.year >= 1583;
     if(after1583) {
-        int S = [self sgnWithVal: (date.month - 9)];
-        int A = abs(date.month-9);
+        int s = [self signWithVal: (date.month - 9)];
+        int a = abs(date.month-9);
         
-        offset = date.year + S * (A/7);
+        offset = date.year + s * (a/7);
         offset = -1 * ( (offset/100) +1) * 3/4;
     }
     
@@ -706,22 +708,22 @@ static const double K1 = 15.0 * DR * 1.0027379;
 			break;
 		case OnlySet:
 			event.risenAmount = event.set;
-            event.setAmount   = [self differenceWithT1:midnight T2:event.set];
+            event.setAmount   = [self differenceInTimeBetweenFirst:midnight Second:event.set];
 			break;
 		case OnlyRisen:
-            event.risenAmount = [self differenceWithT1:midnight T2:event.rise];
+            event.risenAmount = [self differenceInTimeBetweenFirst:midnight Second:event.rise];
 			event.setAmount   = event.rise;
 			break;
 		default:
-            event.risenAmount = [self differenceWithT1:event.set T2:event.rise];
-            event.setAmount   = [self differenceWithT1:event.rise T2:event.set];
+            event.risenAmount = [self differenceInTimeBetweenFirst:event.set Second:event.rise];
+            event.setAmount   = [self differenceInTimeBetweenFirst:event.rise Second:event.set];
             break;
     }
     
 }
 
 
-- (KZSimpleTime*) differenceWithT1:(KZSimpleTime*) t1 T2:(KZSimpleTime*) t2 {
+- (KZSimpleTime*) differenceInTimeBetweenFirst:(KZSimpleTime*) t1 Second:(KZSimpleTime*) t2 {
     int hour = t1.hour - t2.hour;
     int min = t1.min - t2.min;
     
