@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- A simple way to express time in hours and minutes
+ A simple way to express time in hours and minutes. This is simply a container class.
  */
 @interface KZSimpleTime : NSObject
 

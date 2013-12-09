@@ -10,7 +10,8 @@
 
 
 /**
- A simple way to express a Gregorian date (i.e. month/day/year)
+ A simple way to express a Gregorian date (i.e. month/day/year). This is
+ a container class and nothing more.
  */
 @interface KZSimpleDate : NSObject
 
