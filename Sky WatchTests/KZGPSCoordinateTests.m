@@ -33,6 +33,7 @@
     
     XCTAssertEqual(latitude, coordinate.latitude, @"The initializer should set the latitude property to the incoming latitude parameter");
     XCTAssertEqual(longitude, coordinate.longitude, @"The initializer should set the longitude property to the incoming longitude parameter");
+    
 }
 
 @end

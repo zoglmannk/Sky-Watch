@@ -10,7 +10,16 @@
 #import "KZPosition.h"
 #import "KZSimpleDate.h"
 #import "KZSimpleTime.h"
+#import "KZResult.h"
+#import "KZEvent.h"
+#import "KZSimpleTime.h"
+#import "KZGPSCoordinate.h"
+
 
 @interface KZCalculator : NSObject
+
+- (KZResult*) calculateWithGps:(KZGPSCoordinate*) gps
+                    utcToLocal:(int) utcToLocal
+                          date:(KZSimpleDate*) date;
 
 @end

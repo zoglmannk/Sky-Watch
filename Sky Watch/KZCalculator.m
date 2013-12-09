@@ -7,10 +7,6 @@
 //
 
 #import "KZCalculator.h"
-#import "KZResult.h"
-#import "KZEvent.h"
-#import "KZSimpleTime.h"
-#import "KZGPSCoordinate.h"
 
 
 static const double DAYS_IN_LUNAR_MONTH = 29.530588853;

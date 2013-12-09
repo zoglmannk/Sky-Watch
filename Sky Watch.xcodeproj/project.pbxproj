@@ -30,10 +30,11 @@
 		6E1DCF231854DE9A009885A7 /* KZMoonEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF221854DE9A009885A7 /* KZMoonEvent.m */; };
 		6E1DCF26185507B4009885A7 /* KZGPSCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF25185507B4009885A7 /* KZGPSCoordinate.m */; };
 		6E1DCF29185533BD009885A7 /* KZMoonEventTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF28185533BD009885A7 /* KZMoonEventTests.m */; };
-		6E1DCF2B18553F9A009885A7 /* KZPositionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF2A18553F9A009885A7 /* KZPositionTest.m */; };
+		6E1DCF2B18553F9A009885A7 /* KZPositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF2A18553F9A009885A7 /* KZPositionTests.m */; };
 		6E1DCF2F1855432C009885A7 /* KZSimpleDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF2E1855432C009885A7 /* KZSimpleDateTests.m */; };
 		6E1DCF31185543A4009885A7 /* KZSimpleTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF30185543A4009885A7 /* KZSimpleTimeTests.m */; };
 		6E1DCF3318554659009885A7 /* KZGPSCoordinateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF3218554659009885A7 /* KZGPSCoordinateTests.m */; };
+		6E1DCF3518555AF7009885A7 /* KZCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF3418555AF7009885A7 /* KZCalculatorTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,10 +84,11 @@
 		6E1DCF24185507B4009885A7 /* KZGPSCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZGPSCoordinate.h; sourceTree = "<group>"; };
 		6E1DCF25185507B4009885A7 /* KZGPSCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZGPSCoordinate.m; sourceTree = "<group>"; };
 		6E1DCF28185533BD009885A7 /* KZMoonEventTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZMoonEventTests.m; sourceTree = "<group>"; };
-		6E1DCF2A18553F9A009885A7 /* KZPositionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZPositionTest.m; sourceTree = "<group>"; };
+		6E1DCF2A18553F9A009885A7 /* KZPositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZPositionTests.m; sourceTree = "<group>"; };
 		6E1DCF2E1855432C009885A7 /* KZSimpleDateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZSimpleDateTests.m; sourceTree = "<group>"; };
 		6E1DCF30185543A4009885A7 /* KZSimpleTimeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZSimpleTimeTests.m; sourceTree = "<group>"; };
 		6E1DCF3218554659009885A7 /* KZGPSCoordinateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZGPSCoordinateTests.m; sourceTree = "<group>"; };
+		6E1DCF3418555AF7009885A7 /* KZCalculatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZCalculatorTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,10 +217,11 @@
 			isa = PBXGroup;
 			children = (
 				6E1DCF28185533BD009885A7 /* KZMoonEventTests.m */,
-				6E1DCF2A18553F9A009885A7 /* KZPositionTest.m */,
+				6E1DCF2A18553F9A009885A7 /* KZPositionTests.m */,
 				6E1DCF2E1855432C009885A7 /* KZSimpleDateTests.m */,
 				6E1DCF30185543A4009885A7 /* KZSimpleTimeTests.m */,
 				6E1DCF3218554659009885A7 /* KZGPSCoordinateTests.m */,
+				6E1DCF3418555AF7009885A7 /* KZCalculatorTests.m */,
 			);
 			name = "Calculation Related";
 			sourceTree = "<group>";
@@ -342,10 +345,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E1DCF2B18553F9A009885A7 /* KZPositionTest.m in Sources */,
+				6E1DCF2B18553F9A009885A7 /* KZPositionTests.m in Sources */,
 				6E1DCF29185533BD009885A7 /* KZMoonEventTests.m in Sources */,
 				6E1DCF31185543A4009885A7 /* KZSimpleTimeTests.m in Sources */,
 				6E1DCF2F1855432C009885A7 /* KZSimpleDateTests.m in Sources */,
+				6E1DCF3518555AF7009885A7 /* KZCalculatorTests.m in Sources */,
 				6E0347AC185413290080CE5D /* Sky_WatchTests.m in Sources */,
 				6E1DCF3318554659009885A7 /* KZGPSCoordinateTests.m in Sources */,
 			);
