@@ -35,6 +35,14 @@
 		6E1DCF31185543A4009885A7 /* KZSimpleTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF30185543A4009885A7 /* KZSimpleTimeTests.m */; };
 		6E1DCF3318554659009885A7 /* KZGPSCoordinateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF3218554659009885A7 /* KZGPSCoordinateTests.m */; };
 		6E1DCF3518555AF7009885A7 /* KZCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF3418555AF7009885A7 /* KZCalculatorTests.m */; };
+		6E1DCF3718557142009885A7 /* PebbleKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF3618557142009885A7 /* PebbleKit.framework */; };
+		6E1DCF3918557198009885A7 /* PebbleVendor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF3818557198009885A7 /* PebbleVendor.framework */; };
+		6E1DCF3B185571E6009885A7 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF3A185571E6009885A7 /* ExternalAccessory.framework */; };
+		6E1DCF3D185571FD009885A7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF3C185571FD009885A7 /* libz.dylib */; };
+		6E1DCF3F18557204009885A7 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF3E18557204009885A7 /* CoreBluetooth.framework */; };
+		6E1DCF4118557219009885A7 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF4018557219009885A7 /* CoreMotion.framework */; };
+		6E1DCF431855722F009885A7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF421855722F009885A7 /* CFNetwork.framework */; };
+		6E1DCF451855723B009885A7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF441855723B009885A7 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +97,14 @@
 		6E1DCF30185543A4009885A7 /* KZSimpleTimeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZSimpleTimeTests.m; sourceTree = "<group>"; };
 		6E1DCF3218554659009885A7 /* KZGPSCoordinateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZGPSCoordinateTests.m; sourceTree = "<group>"; };
 		6E1DCF3418555AF7009885A7 /* KZCalculatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZCalculatorTests.m; sourceTree = "<group>"; };
+		6E1DCF3618557142009885A7 /* PebbleKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PebbleKit.framework; sourceTree = "<group>"; };
+		6E1DCF3818557198009885A7 /* PebbleVendor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PebbleVendor.framework; sourceTree = "<group>"; };
+		6E1DCF3A185571E6009885A7 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		6E1DCF3C185571FD009885A7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		6E1DCF3E18557204009885A7 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		6E1DCF4018557219009885A7 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		6E1DCF421855722F009885A7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6E1DCF441855723B009885A7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +112,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E1DCF451855723B009885A7 /* MessageUI.framework in Frameworks */,
+				6E1DCF431855722F009885A7 /* CFNetwork.framework in Frameworks */,
+				6E1DCF4118557219009885A7 /* CoreMotion.framework in Frameworks */,
+				6E1DCF3F18557204009885A7 /* CoreBluetooth.framework in Frameworks */,
+				6E1DCF3D185571FD009885A7 /* libz.dylib in Frameworks */,
+				6E1DCF3B185571E6009885A7 /* ExternalAccessory.framework in Frameworks */,
 				6E034783185413280080CE5D /* CoreGraphics.framework in Frameworks */,
+				6E1DCF3918557198009885A7 /* PebbleVendor.framework in Frameworks */,
+				6E1DCF3718557142009885A7 /* PebbleKit.framework in Frameworks */,
 				6E034785185413280080CE5D /* UIKit.framework in Frameworks */,
 				6E034781185413280080CE5D /* Foundation.framework in Frameworks */,
 			);
@@ -137,6 +161,14 @@
 		6E03477F185413280080CE5D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E1DCF441855723B009885A7 /* MessageUI.framework */,
+				6E1DCF421855722F009885A7 /* CFNetwork.framework */,
+				6E1DCF4018557219009885A7 /* CoreMotion.framework */,
+				6E1DCF3E18557204009885A7 /* CoreBluetooth.framework */,
+				6E1DCF3C185571FD009885A7 /* libz.dylib */,
+				6E1DCF3A185571E6009885A7 /* ExternalAccessory.framework */,
+				6E1DCF3818557198009885A7 /* PebbleVendor.framework */,
+				6E1DCF3618557142009885A7 /* PebbleKit.framework */,
 				6E034780185413280080CE5D /* Foundation.framework */,
 				6E034782185413280080CE5D /* CoreGraphics.framework */,
 				6E034784185413280080CE5D /* UIKit.framework */,
@@ -471,10 +503,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/kaz/Desktop/Sky\\ Watch",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sky Watch/Sky Watch-Prefix.pch";
 				INFOPLIST_FILE = "Sky Watch/Sky Watch-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -486,10 +523,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/kaz/Desktop/Sky\\ Watch",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sky Watch/Sky Watch-Prefix.pch";
 				INFOPLIST_FILE = "Sky Watch/Sky Watch-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
