@@ -17,7 +17,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.connectionButton.backgroundColor = [UIColor darkGrayColor];
+    self.connectionButton.layer.cornerRadius = 10;
+    self.connectionButton.clipsToBounds = YES;
+
+}
+
+- (IBAction)connectionButtonClick:(id)sender {
+    NSLog(@"The User clicked the connect button!");
 }
 
 - (void)didReceiveMemoryWarning

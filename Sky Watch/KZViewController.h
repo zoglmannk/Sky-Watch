@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface KZViewController : UIViewController
-
+@property IBOutlet UIButton *connectionButton;
+@property IBOutlet UILabel *connectionLabel;
 @end
