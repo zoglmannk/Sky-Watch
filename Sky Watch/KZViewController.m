@@ -7,13 +7,16 @@
 //
 
 #import "KZViewController.h"
+#import "KZPebbleController.h"
+
+
 
 @interface KZViewController ()
-
+    @property KZPebbleController *pebbleConroller;
 @end
 
-@implementation KZViewController
 
+@implementation KZViewController
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -26,12 +29,43 @@
 
 - (IBAction)connectionButtonClick:(id)sender {
     NSLog(@"The User clicked the connect button!");
+    
+    [self.connectionButton setEnabled:NO];
+    [self.connectionLabel setText:@"Sending Data..."];
+    
+    if(nil == self.pebbleConroller) {
+        self.pebbleConroller = [KZPebbleController new];
+    }
+    
+    
+    void(^onFailure)(NSString *errorMessage) = ^void(NSString *errorMessage) {
+        [self.connectionLabel setText:errorMessage];
+        [self.connectionButton setEnabled:YES];
+    };
+    
+    void(^onSuccess)(void) = ^void(void) {
+        [self.connectionLabel setText:@"Data Sent..."];
+        [self.connectionButton setEnabled:YES];
+    };
+    
+    
+    dispatch_queue_t myQueue = dispatch_queue_create("Send Data",NULL);
+    dispatch_async(myQueue, ^{
+        // Perform long running process
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.pebbleConroller sendDataOnSuccess:onSuccess onFailure:onFailure];
+        });
+    });
+
+
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    
     // Dispose of any resources that can be recreated.
+    self.pebbleConroller = nil;
 }
 
 @end

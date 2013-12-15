@@ -43,6 +43,7 @@
 		6E1DCF4118557219009885A7 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF4018557219009885A7 /* CoreMotion.framework */; };
 		6E1DCF431855722F009885A7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF421855722F009885A7 /* CFNetwork.framework */; };
 		6E1DCF451855723B009885A7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF441855723B009885A7 /* MessageUI.framework */; };
+		6E262FFA185D4BB10084A012 /* KZPebbleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E262FF9185D4BB10084A012 /* KZPebbleController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		6E1DCF4018557219009885A7 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		6E1DCF421855722F009885A7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		6E1DCF441855723B009885A7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		6E262FF8185D4BB10084A012 /* KZPebbleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZPebbleController.h; sourceTree = "<group>"; };
+		6E262FF9185D4BB10084A012 /* KZPebbleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZPebbleController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +185,8 @@
 			children = (
 				6E03478F185413280080CE5D /* KZAppDelegate.h */,
 				6E034790185413280080CE5D /* KZAppDelegate.m */,
+				6E262FF8185D4BB10084A012 /* KZPebbleController.h */,
+				6E262FF9185D4BB10084A012 /* KZPebbleController.m */,
 				6E034792185413280080CE5D /* Main.storyboard */,
 				6E034795185413280080CE5D /* KZViewController.h */,
 				6E034796185413280080CE5D /* KZViewController.m */,
@@ -361,6 +366,7 @@
 			files = (
 				6E1DCF231854DE9A009885A7 /* KZMoonEvent.m in Sources */,
 				6E1DCF1118542261009885A7 /* KZCalculator.m in Sources */,
+				6E262FFA185D4BB10084A012 /* KZPebbleController.m in Sources */,
 				6E1DCF1D1854DC03009885A7 /* KZResult.m in Sources */,
 				6E1DCF201854DC4A009885A7 /* KZEvent.m in Sources */,
 				6E03478D185413280080CE5D /* main.m in Sources */,
