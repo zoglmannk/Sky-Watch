@@ -20,4 +20,8 @@
     return self;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"KZSimpleTime(hour: %d, minute: %d)", self.hour, self.min];
+}
+
 @end

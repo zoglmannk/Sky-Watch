@@ -7,9 +7,9 @@
 //
 
 #import "KZPebbleController.h"
+#import "KZPebbleDataChunk.h"
+#import "KZCalculator.h"
 
-static const uint32_t SOME_NUM_KEY = 0xb00bf00b;
-static const uint32_t SOME_STRING_KEY = 0xabbababe;
 
 @interface KZPebbleController () <PBPebbleCentralDelegate>
 
@@ -61,8 +61,11 @@ static const uint32_t SOME_STRING_KEY = 0xabbababe;
     //Test sending of some junk
     if(nil != _targetWatch) {
         
-        NSDictionary *update = @{ @(SOME_NUM_KEY):[NSNumber numberWithUint8:42],
-                                  @(SOME_STRING_KEY):@"a string" };
+        //send one chunk for the moment
+        KZCalculator *calculator = [KZCalculator new];
+        KZResult *result = [calculator calculateWithGps:nil utcToLocal:-6 date:[KZSimpleDate new]];
+        NSDictionary *update = [[KZPebbleDataChunk new] encodedResult:result slot:1];
+        
         NSLog(@"sending targetWatch appMessagesPushUpdate:onSent:");
         [_targetWatch appMessagesPushUpdate:update onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
             if (!error) {

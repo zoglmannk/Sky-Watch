@@ -16,4 +16,6 @@
 
 - (id) initWithLatitude:(double)latitude longitude:(double)longitude;
 
+- (NSString *)description;
+
 @end

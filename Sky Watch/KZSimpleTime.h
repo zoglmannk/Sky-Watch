@@ -18,4 +18,6 @@
 
 - (id) initWithHour:(double)hour minute:(double)min;
 
+- (NSString *)description;
+
 @end

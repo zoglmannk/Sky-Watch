@@ -19,6 +19,11 @@
 @property (nonatomic, readonly) int day;
 @property (nonatomic, readonly) int year;
 
+- (id) init;
+- (id) initWithDate:(NSDate*) date;
 - (id) initWithMonth:(double)month day:(double)day year:(int)year;
+- (NSDate*) convertToNSDate;
+
+- (NSString *)description;
 
 @end

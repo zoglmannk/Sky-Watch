@@ -34,7 +34,14 @@
 
     XCTAssertEqual(rightAscention, pos.rightAscention, @"The initializer should set the rightAscention property to the incoming rightAscention parameter");
     XCTAssertEqual(declination, pos.declination, @"The initializer should set the declination property to the incoming declination parameter");
+}
+
+- (void)testDescription {
+    KZPosition* pos = [[KZPosition alloc] initWithRightAscention:36.456 declination:19.567];
     
+    NSString *description = [pos description];
+    
+    XCTAssertEqualObjects(@"KZPosition(rightAscention: 36.456, declination: 19.567", description, @"The description should match based.");
 }
 
 @end

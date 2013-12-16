@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "KZEvent.h"
+#import "KZSimpleDate.h"
 #import "KZMoonEvent.h"
 
 
 @interface KZResult : NSObject
+
+@property (nonatomic) KZSimpleDate *date;
 
 /**
  Represents the sun crossing the horizon
