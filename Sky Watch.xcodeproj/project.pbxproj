@@ -51,6 +51,7 @@
 		6E6BAC79185E81780055D0CF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF3C185571FD009885A7 /* libz.dylib */; };
 		6E6BAC7A185E81D60055D0CF /* PebbleKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF3618557142009885A7 /* PebbleKit.framework */; };
 		6E6BAC7B185E81DD0055D0CF /* PebbleVendor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF3818557198009885A7 /* PebbleVendor.framework */; };
+		6E6BAC7D185FDFB10055D0CF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6BAC7C185FDFB10055D0CF /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		6E262FFC185E1A820084A012 /* KZPebbleDataChunk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZPebbleDataChunk.m; sourceTree = "<group>"; };
 		6E6BAC73185E63920055D0CF /* KZSimpleDateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZSimpleDateTests.m; sourceTree = "<group>"; };
 		6E6BAC75185E79F10055D0CF /* KZPebbleDataChunkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZPebbleDataChunkTests.m; sourceTree = "<group>"; };
+		6E6BAC7C185FDFB10055D0CF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E6BAC7D185FDFB10055D0CF /* CoreLocation.framework in Frameworks */,
 				6E1DCF451855723B009885A7 /* MessageUI.framework in Frameworks */,
 				6E1DCF431855722F009885A7 /* CFNetwork.framework in Frameworks */,
 				6E1DCF4118557219009885A7 /* CoreMotion.framework in Frameworks */,
@@ -179,6 +182,7 @@
 		6E03477F185413280080CE5D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E6BAC7C185FDFB10055D0CF /* CoreLocation.framework */,
 				6E1DCF441855723B009885A7 /* MessageUI.framework */,
 				6E1DCF421855722F009885A7 /* CFNetwork.framework */,
 				6E1DCF4018557219009885A7 /* CoreMotion.framework */,

@@ -12,18 +12,24 @@
 
 
 @interface KZViewController ()
-    @property KZPebbleController *pebbleConroller;
+
+@property KZPebbleController *pebbleConroller;
+@property CLLocation *currentLocation;
+
 @end
 
 
 @implementation KZViewController
-- (void)viewDidLoad
-{
+
+- (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.connectionButton.backgroundColor = [UIColor darkGrayColor];
-    self.connectionButton.layer.cornerRadius = 10;
-    self.connectionButton.clipsToBounds = YES;
+    if (self.locationManager == nil) {
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+        self.locationManager.delegate = self;
+    }
+    [self.locationManager startUpdatingLocation];
 
 }
 
@@ -53,15 +59,34 @@
     dispatch_async(myQueue, ^{
         // Perform long running process
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.pebbleConroller sendDataOnSuccess:onSuccess onFailure:onFailure];
+            [self.pebbleConroller sendDataUsingLocation:self.currentLocation onSuccess:onSuccess onFailure:onFailure];
         });
     });
-
-
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void) locationManager:(CLLocationManager *)manager
+     didUpdateToLocation:(CLLocation *)newLocation
+            fromLocation:(CLLocation *)oldLocation {
+    
+    NSLog(@"Core location has a position.");
+    
+    [self.connectionLabel setText:@"Waiting..."];
+    [self.connectionButton setEnabled:YES];
+    
+    self.currentLocation = newLocation;
+}
+
+- (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"Core location can't get a fix.");
+    
+    //optimistic that data is NOT being sent.. deal with later
+    [self.connectionLabel setText:@"No Location available"];
+    [self.connectionButton setEnabled:NO];
+    
+    self.currentLocation = nil;
+}
+
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
     // Dispose of any resources that can be recreated.

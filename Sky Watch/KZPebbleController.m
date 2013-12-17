@@ -12,8 +12,8 @@
 
 
 @interface KZPebbleController () <PBPebbleCentralDelegate>
-
 @end
+
 
 @implementation KZPebbleController {
     BOOL _debug;
@@ -43,7 +43,8 @@
 }
 
 
-- (void) sendDataOnSuccess:(void(^)(void)) onSuccess  onFailure:(void(^)(NSString *errorMessage)) onFailure {    
+- (void) sendDataUsingLocation:(CLLocation*)location onSuccess:(void(^)(void)) onSuccess  onFailure:(void(^)(NSString *errorMessage)) onFailure {
+    
     if(_debug) {;
         [self logApplicationStartupWithWatch: _targetWatch];
     }
@@ -60,11 +61,13 @@
     
     //Test sending of some junk
     if(nil != _targetWatch) {
+        KZGPSCoordinate *coordinate = [[KZGPSCoordinate alloc] initWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude];
+        int timeZoneOffset = [[NSTimeZone localTimeZone] secondsFromGMT] / 3600;
         
         //send one chunk for the moment
         KZCalculator *calculator = [KZCalculator new];
-        KZResult *result = [calculator calculateWithGps:nil utcToLocal:-6 date:[KZSimpleDate new]];
-        NSDictionary *update = [[KZPebbleDataChunk new] encodedResult:result slot:1];
+        KZResult *result = [calculator calculateWithGps:coordinate utcToLocal:timeZoneOffset date:[KZSimpleDate new]];
+        NSDictionary *update = [[KZPebbleDataChunk new] encodedResult:result slot:0];
         
         NSLog(@"sending targetWatch appMessagesPushUpdate:onSent:");
         [_targetWatch appMessagesPushUpdate:update onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {

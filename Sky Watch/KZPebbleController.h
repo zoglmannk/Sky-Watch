@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <PebbleKit/PebbleKit.h>
+#import <CoreLocation/CoreLocation.h>
+
 
 @interface KZPebbleController : NSObject
 
@@ -15,6 +17,6 @@
  @param onSuccess called when data is successfully sent
  @param onFailure called when data cannnot be sent
  */
-- (void) sendDataOnSuccess:(void(^)(void))onSuccess onFailure:(void(^)(NSString *errorMessage))onFailure;
+- (void) sendDataUsingLocation:(CLLocation*)location onSuccess:(void(^)(void))onSuccess onFailure:(void(^)(NSString *errorMessage))onFailure;
 
 @end
