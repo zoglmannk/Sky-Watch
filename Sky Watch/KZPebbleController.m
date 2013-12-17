@@ -64,12 +64,11 @@
         KZGPSCoordinate *coordinate = [[KZGPSCoordinate alloc] initWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude];
         int timeZoneOffset = [[NSTimeZone localTimeZone] secondsFromGMT] / 3600;
         
-        //KZSimpleDate *today = [[KZSimpleDate alloc] initWithDate:[NSDate new]];
         NSDate *today = [NSDate new];
         NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         NSDateComponents *components = [[NSDateComponents alloc] init];
         
-        dispatch_semaphore_t _sema = dispatch_semaphore_create(0);
+        dispatch_semaphore_t sema = dispatch_semaphore_create(0);
         int daysWorthOfData = 14;
         for(int i=0; i<daysWorthOfData; i++) {
 
@@ -80,32 +79,51 @@
             //send one chunk for the moment
             KZCalculator *calculator = [KZCalculator new];
             KZResult *result = [calculator calculateWithGps:coordinate utcToLocal:timeZoneOffset date:calcDate];
-            NSDictionary *update = [[KZPebbleDataChunk new] encodedResult:result slot:0];
             
-            NSLog(@"sending targetWatch appMessagesPushUpdate:onSent:");
-            dispatch_async(dispatch_get_main_queue(), ^{ //for some reason this has to be on the main_queue
-                [_targetWatch appMessagesPushUpdate:update onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
-                    if (!error) {
-                        _wasCommunicationSuccessful = YES;
-                        NSLog(@"Successfully sent message.");
-                    }
-                    else {
-                        _wasCommunicationSuccessful = NO;
-                        NSLog(@"Error sending message: %@", error);
-                    }
-                    
-                    dispatch_semaphore_signal(_sema);
-                    
-                }];
-            });
-
-            dispatch_semaphore_wait(_sema, DISPATCH_TIME_FOREVER);
+            for(int j=0; j<3; j++) {
+                NSDictionary *update = nil;
+                
+                switch(j) {
+                    case 0:
+                        update = [[KZPebbleDataChunk new] encodeChunk1:result slot:i];
+                        break;
+                    case 1:
+                        update = [[KZPebbleDataChunk new] encodeChunk2:result slot:i];
+                        break;
+                    case 2:
+                        update = [[KZPebbleDataChunk new] encodeChunk3:result slot:i];
+                        break;
+                    default:
+                        [NSException raise:@"Impossible" format:@"j is unexpectedly %d", j];
+                }
+                
+                NSLog(@"sending targetWatch appMessagesPushUpdate:onSent:");
+                dispatch_async(dispatch_get_main_queue(), ^{ //for some reason this has to be on the main_queue
+                    [_targetWatch appMessagesPushUpdate:update onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
+                        if (!error) {
+                            _wasCommunicationSuccessful = YES;
+                            NSLog(@"Successfully sent message.");
+                        }
+                        else {
+                            _wasCommunicationSuccessful = NO;
+                            NSLog(@"Error sending message: %@", error);
+                        }
+                        
+                        dispatch_semaphore_signal(sema);
+                        
+                    }];
+                });
+                
+                dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
             
-            if(!_wasCommunicationSuccessful) {
-                break;
+                if(!_wasCommunicationSuccessful) {
+                    goto outer;
+                }
             }
-
+            
         }
+        
+    outer:
         
         if(_wasCommunicationSuccessful) {
             NSLog(@"Calling onSuccess() block");

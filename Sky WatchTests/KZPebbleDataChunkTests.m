@@ -30,10 +30,44 @@
     _dataChunk = nil;
 }
 
-
-- (void)testEncodedResultContainsDaySlotSet {
+- (void)testEncodedResult1ContainsChunk {
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:nil slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk1:nil slot:1];
+    
+    XCTAssertEqual(@(0), [encodedResult objectForKey:@(CHUNK_KEY)], @"The result should have a chunk value of one for the CHUNK_KEY");
+}
+
+- (void)testEncodedResult2ContainsChunk {
+    
+    NSDictionary *encodedResult = [_dataChunk encodeChunk2:nil slot:1];
+    
+    XCTAssertEqual(@(1), [encodedResult objectForKey:@(CHUNK_KEY)], @"The result should have a chunk value of one for the CHUNK_KEY");
+}
+
+- (void)testEncodedResult3ContainsChunk {
+    
+    NSDictionary *encodedResult = [_dataChunk encodeChunk3:nil slot:1];
+    
+    XCTAssertEqual(@(2), [encodedResult objectForKey:@(CHUNK_KEY)], @"The result should have a chunk value of one for the CHUNK_KEY");
+}
+
+- (void)testEncodedResult1ContainsDaySlot {
+    
+    NSDictionary *encodedResult = [_dataChunk encodeChunk1:nil slot:1];
+    
+    XCTAssertEqual(@(1), [encodedResult objectForKey:@(DAY_SLOT_KEY)], @"The result should have a slot value of one for the DAY_SLOT_KEY");
+}
+
+- (void)testEncodedResult2ContainsDaySlot {
+    
+    NSDictionary *encodedResult = [_dataChunk encodeChunk2:nil slot:1];
+    
+    XCTAssertEqual(@(1), [encodedResult objectForKey:@(DAY_SLOT_KEY)], @"The result should have a slot value of one for the DAY_SLOT_KEY");
+}
+
+- (void)testEncodedResult3ContainsDaySlot {
+    
+    NSDictionary *encodedResult = [_dataChunk encodeChunk3:nil slot:1];
     
     XCTAssertEqual(@(1), [encodedResult objectForKey:@(DAY_SLOT_KEY)], @"The result should have a slot value of one for the DAY_SLOT_KEY");
 }
@@ -43,7 +77,7 @@
     result.date = [[KZSimpleDate alloc] initWithMonth:12 day:2 year:2013];
     int expectedDayOfYear = 336;
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk1:result slot:1];
     NSNumber *encodedDayOfYear = (NSNumber*) [encodedResult objectForKey:@(DAY_OF_YEAR_KEY)];
     
     XCTAssertEqual(expectedDayOfYear, [encodedDayOfYear intValue], @"Day of year should match for 12/2/2013");
@@ -53,7 +87,7 @@
     KZResult *result = [KZResult new];
     result.date = [[KZSimpleDate alloc] initWithMonth:12 day:14 year:2013];
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk1:result slot:1];
     NSNumber *encodedYear = (NSNumber*) [encodedResult objectForKey:@(YEAR_KEY)];
     
     XCTAssertEqual(2013, [encodedYear intValue], @"The year should be equal to 2013");
@@ -64,7 +98,7 @@
     result.sun = [KZEvent new];
     result.sun.rise = [[KZSimpleTime alloc] initWithHour:13 minute:15];
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk1:result slot:1];
     NSNumber *encodedTime = (NSNumber*) [encodedResult objectForKey:@(SUN_RISE_KEY)];
     
     int expectedValue = 13*60+15;
@@ -76,7 +110,7 @@
     result.sun = [KZEvent new];
     result.sun.riseAzimuth = 302.5;
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk1:result slot:1];
     NSNumber *encodedSunRiseAzimuth = (NSNumber*) [encodedResult objectForKey:@(SUN_RISE_AZIMUTH_KEY)];
     
     int expectedValue = 303;
@@ -88,7 +122,7 @@
     result.sun = [KZEvent new];
     result.sun.set = [[KZSimpleTime alloc] initWithHour:5 minute:55];
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk1:result slot:1];
     NSNumber *encodedTime = (NSNumber*) [encodedResult objectForKey:@(SUN_SET_KEY)];
     
     int expected = 5*60 + 55;
@@ -100,7 +134,7 @@
     result.sun = [KZEvent new];
     result.sun.setAzimuth = 56.2;
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk1:result slot:1];
     NSNumber *encodedSunSetAzimuth = (NSNumber*) [encodedResult objectForKey:@(SUN_SET_AZIMUTH_KEY)];
     
     XCTAssertEqual(56, [encodedSunSetAzimuth intValue], @"The run set azimuth should be encoded correctly");
@@ -111,7 +145,7 @@
     result.sun = [KZEvent new];
     result.sun.meridianCrossing = [[KZSimpleTime alloc] initWithHour:14 minute:9];
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk1:result slot:1];
     NSNumber *encodedSolarNoon = (NSNumber*) [encodedResult objectForKey:@(SOLAR_NOON)];
     
     int expected = 14*60 + 9;
@@ -123,7 +157,7 @@
     result.sun = [KZEvent new];
     result.sun.antimeridianCrossing = [[KZSimpleTime alloc] initWithHour:2 minute:30];
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk1:result slot:1];
     NSNumber *encodedSolarMidnight = (NSNumber*) [encodedResult objectForKey:@(SOLAR_MIDNIGHT)];
     
     int expected = 2*60 + 30;
@@ -135,7 +169,7 @@
     result.goldenHour = [KZEvent new];
     result.goldenHour.rise = [[KZSimpleTime alloc] initWithHour:10 minute:22];
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk2:result slot:1];
     NSNumber *encodedGoldenHourBegin = (NSNumber*) [encodedResult objectForKey:@(GOLDEN_HOUR_BEGIN_KEY)];
     
     int expected = 10*60 + 22;
@@ -147,7 +181,7 @@
     result.goldenHour = [KZEvent new];
     result.goldenHour.set = [[KZSimpleTime alloc] initWithHour:17 minute:02];
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk2:result slot:1];
     NSNumber *encodedGoldenHourEnd = (NSNumber*) [encodedResult objectForKey:@(GOLDEN_HOUR_END_KEY)];
     
     int expected = 17*60 + 2;
@@ -159,7 +193,7 @@
     result.civilTwilight = [KZEvent new];
     result.civilTwilight.rise = [[KZSimpleTime alloc] initWithHour:6 minute:10];
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk2:result slot:1];
     NSNumber *encodedCivilTwilightBegin = [encodedResult objectForKey:@(CIVIL_TWILIGHT_BEGIN_KEY)];
     
     int expected = 6*60 + 10;
@@ -171,7 +205,7 @@
     result.civilTwilight = [KZEvent new];
     result.civilTwilight.set = [[KZSimpleTime alloc] initWithHour:18 minute:2];
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk2:result slot:1];
     NSNumber *encodedCivilTwilightEnd = [encodedResult objectForKey:@(CIVIL_TWILIGHT_END_KEY)];
     
     int expected = 18*60 + 2;
@@ -183,7 +217,7 @@
     result.nauticalTwilight = [KZEvent new];
     result.nauticalTwilight.rise = [[KZSimpleTime alloc] initWithHour:5 minute:55];
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk2:result slot:1];
     NSNumber *encodedNauticalTwilightBegin = [encodedResult objectForKey:@(NAUTICAL_TWILIGHT_BEGIN_KEY)];
     
     int expected = 5*60 + 55;
@@ -195,7 +229,7 @@
     result.nauticalTwilight = [KZEvent new];
     result.nauticalTwilight.set = [[KZSimpleTime alloc] initWithHour:19 minute:13];
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk2:result slot:1];
     NSNumber *encodedNauticalTwilightEnd = [encodedResult objectForKey:@(NAUTICAL_TWILIGHT_END_KEY)];
     
     int expected = 19*60 + 13;
@@ -207,7 +241,7 @@
     result.astronomicalTwilight = [KZEvent new];
     result.astronomicalTwilight.rise = [[KZSimpleTime alloc] initWithHour:4 minute:30];
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk2:result slot:1];
     NSNumber *encodedAstronomicalTwilightBegin = [encodedResult objectForKey:@(ASTRONOMICAL_TWILIGHT_BEGIN_KEY)];
     
     int expected = 4*60 + 30;
@@ -219,7 +253,7 @@
     result.astronomicalTwilight = [KZEvent new];
     result.astronomicalTwilight.set = [[KZSimpleTime alloc] initWithHour:20 minute:15];
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk2:result slot:1];
     NSNumber *encodedAstronomicalTwilightEnd = [encodedResult objectForKey:@(ASTRONOMICAL_TWILIGHT_END_KEY)];
     
     int expected = 20*60 + 15;
@@ -231,7 +265,7 @@
     result.moonToday = [KZMoonEvent new];
     result.moonToday.rise = [[KZSimpleTime alloc] initWithHour:0 minute:5];
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk3:result slot:1];
     NSNumber *encodedMoonRise = [encodedResult objectForKey:@(MOON_RISE_KEY)];
     
     int expected = 0*60 + 5;
@@ -243,7 +277,7 @@
     result.moonToday = [KZMoonEvent new];
     result.moonToday.riseAzimuth = 123.823;
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk3:result slot:1];
     NSNumber *encodedMoonRiseAzimuth = [encodedResult objectForKey:@(MOON_RISE_AZIMUTH_KEY)];
     
     XCTAssertEqual(124, [encodedMoonRiseAzimuth intValue], @"The moon rise azimuth should be encoded correctly");
@@ -254,7 +288,7 @@
     result.moonToday = [KZMoonEvent new];
     result.moonToday.set = [[KZSimpleTime alloc] initWithHour:20 minute:50];
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk3:result slot:1];
     NSNumber *encodedMoonSet = [encodedResult objectForKey:@(MOON_SET_KEY)];
     
     int expected = 20*60 + 50;
@@ -266,7 +300,7 @@
     result.moonToday = [KZMoonEvent new];
     result.moonToday.setAzimuth = 82.1;
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk3:result slot:1];
     NSNumber *encodedMoonSetAzimuth = [encodedResult objectForKey:@(MOON_SET_AZIMUTH_KEY)];
     
     XCTAssertEqual(82, [encodedMoonSetAzimuth intValue], @"The moon set azimuth should be encoded correctly");
@@ -277,7 +311,7 @@
     result.moonToday = [KZMoonEvent new];
     result.moonToday.ageInDays = 13;
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk3:result slot:1];
     NSNumber *encodedMoonAgeInDays = [encodedResult objectForKey:@(MOON_AGE_KEY)];
     
     XCTAssertEqual(13, [encodedMoonAgeInDays intValue], @"The moon age should be encoded correctly");
@@ -288,7 +322,7 @@
     result.moonToday = [KZMoonEvent new];
     result.moonToday.illuminationPercent = 55.332;
     
-    NSDictionary *encodedResult = [_dataChunk encodedResult:result slot:1];
+    NSDictionary *encodedResult = [_dataChunk encodeChunk3:result slot:1];
     NSNumber *encodedIllumination = [encodedResult objectForKey:@(MOON_PERCENT_ILLUMINATION)];
     
     int expected = 55;

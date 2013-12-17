@@ -17,7 +17,12 @@
  
  The watch and iPhone share the same timezone at the time of synchronization.
  */
+
+/** Note that each chunk contains these two values **/
+static const uint32_t CHUNK_KEY                       = 500;  // 8bit int
 static const uint32_t DAY_SLOT_KEY                    = 1000; // 8bit int
+
+/** Chunk 1 **/
 static const uint32_t DAY_OF_YEAR_KEY                 = 1001; //16bit int
 static const uint32_t YEAR_KEY                        = 1002; //16bit int
 static const uint32_t SUN_RISE_KEY                    = 1003; //16bit int
@@ -27,7 +32,7 @@ static const uint32_t SUN_SET_AZIMUTH_KEY             = 1006; //16bit int
 static const uint32_t SOLAR_NOON                      = 1007; //16bit int
 static const uint32_t SOLAR_MIDNIGHT                  = 1008; //16bit int
 
-
+/** Chunk 2 **/
 static const uint32_t GOLDEN_HOUR_BEGIN_KEY           = 1009; //16bit int
 static const uint32_t GOLDEN_HOUR_END_KEY             = 1010; //16bit int
 static const uint32_t CIVIL_TWILIGHT_BEGIN_KEY        = 1011; //16bit int
@@ -36,6 +41,8 @@ static const uint32_t NAUTICAL_TWILIGHT_BEGIN_KEY     = 1013; //16bit int
 static const uint32_t NAUTICAL_TWILIGHT_END_KEY       = 1014; //16bit int
 static const uint32_t ASTRONOMICAL_TWILIGHT_BEGIN_KEY = 1015; //16bit int
 static const uint32_t ASTRONOMICAL_TWILIGHT_END_KEY   = 1016; //16bit int
+
+/** Chunk 3 **/
 static const uint32_t MOON_RISE_KEY                   = 1017; //16bit int
 static const uint32_t MOON_RISE_AZIMUTH_KEY           = 1018; //16bit int
 static const uint32_t MOON_SET_KEY                    = 1019; //16bit int
@@ -44,9 +51,16 @@ static const uint32_t MOON_AGE_KEY                    = 1021; // 8bit int
 static const uint32_t MOON_PERCENT_ILLUMINATION       = 1022; // 8bit int
 
 
+/** Coresponding values for the CHUNK_KEY **/
+static const int CHUNK_VALUE_1 = 0;
+static const int CHUNK_VALUE_2 = 1;
+static const int CHUNK_VALUE_3 = 2;
+
 
 @interface KZPebbleDataChunk : NSObject
 
-- (NSDictionary*) encodedResult:(KZResult*)result slot:(NSInteger)slot;
+- (NSDictionary*) encodeChunk1:(KZResult*)result slot:(NSInteger)slot;
+- (NSDictionary*) encodeChunk2:(KZResult*)result slot:(NSInteger)slot;
+- (NSDictionary*) encodeChunk3:(KZResult*)result slot:(NSInteger)slot;
 
 @end
