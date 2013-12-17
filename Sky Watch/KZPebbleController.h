@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <PebbleKit/PebbleKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <dispatch/dispatch.h>
+
+#import "KZPebbleDataChunk.h"
+#import "KZCalculator.h"
 
 
 @interface KZPebbleController : NSObject

@@ -26,6 +26,8 @@ static const uint32_t SUN_SET_KEY                     = 1005; //16bit int
 static const uint32_t SUN_SET_AZIMUTH_KEY             = 1006; //16bit int
 static const uint32_t SOLAR_NOON                      = 1007; //16bit int
 static const uint32_t SOLAR_MIDNIGHT                  = 1008; //16bit int
+
+
 static const uint32_t GOLDEN_HOUR_BEGIN_KEY           = 1009; //16bit int
 static const uint32_t GOLDEN_HOUR_END_KEY             = 1010; //16bit int
 static const uint32_t CIVIL_TWILIGHT_BEGIN_KEY        = 1011; //16bit int

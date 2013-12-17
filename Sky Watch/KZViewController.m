@@ -13,8 +13,11 @@
 
 @interface KZViewController ()
 
-@property KZPebbleController *pebbleConroller;
-@property CLLocation *currentLocation;
+@property (nonatomic) KZPebbleController *pebbleConroller;
+@property (atomic) CLLocation *currentLocation;
+
+@property (atomic) BOOL dataTransferInProgress;
+@property (atomic) NSDate *dataTransferResult;
 
 @end
 
@@ -45,22 +48,30 @@
     
     
     void(^onFailure)(NSString *errorMessage) = ^void(NSString *errorMessage) {
-        [self.connectionLabel setText:errorMessage];
-        [self.connectionButton setEnabled:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.connectionLabel setText:errorMessage];
+            [self.connectionButton setEnabled:YES];
+            
+            self.dataTransferResult = [NSDate new];
+            self.dataTransferInProgress = false;
+        });
     };
     
     void(^onSuccess)(void) = ^void(void) {
-        [self.connectionLabel setText:@"Data Sent..."];
-        [self.connectionButton setEnabled:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.connectionLabel setText:@"Data Sent..."];
+            [self.connectionButton setEnabled:YES];
+            
+            self.dataTransferResult = [NSDate new];
+            self.dataTransferInProgress = false;
+        });
     };
     
-    
+    self.dataTransferInProgress = true;
     dispatch_queue_t myQueue = dispatch_queue_create("Send Data",NULL);
     dispatch_async(myQueue, ^{
         // Perform long running process
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.pebbleConroller sendDataUsingLocation:self.currentLocation onSuccess:onSuccess onFailure:onFailure];
-        });
+        [self.pebbleConroller sendDataUsingLocation:self.currentLocation onSuccess:onSuccess onFailure:onFailure];
     });
 }
 
@@ -70,8 +81,10 @@
     
     NSLog(@"Core location has a position.");
     
-    [self.connectionLabel setText:@"Waiting..."];
-    [self.connectionButton setEnabled:YES];
+    if(!self.dataTransferInProgress) {
+        [self.connectionLabel setText:@"Waiting..."];
+        [self.connectionButton setEnabled:YES];
+    }
     
     self.currentLocation = newLocation;
 }
@@ -79,9 +92,10 @@
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"Core location can't get a fix.");
     
-    //optimistic that data is NOT being sent.. deal with later
-    [self.connectionLabel setText:@"No Location available"];
-    [self.connectionButton setEnabled:NO];
+    if(!self.dataTransferInProgress) {
+        [self.connectionLabel setText:@"No Location available"];
+        [self.connectionButton setEnabled:NO];
+    }
     
     self.currentLocation = nil;
 }
