@@ -16,4 +16,6 @@
 
 - (id) initWithRightAscention:(double)rightAscention declination:(double) declination;
 
+- (NSString *)description;
+
 @end

@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface KZViewController : UIViewController
+
+@interface KZViewController : UIViewController <CLLocationManagerDelegate>
+
+@property (nonatomic, retain) CLLocationManager *locationManager;
+
+@property IBOutlet UIButton *connectionButton;
+@property IBOutlet UILabel *connectionLabel;
 
 @end

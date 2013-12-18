@@ -21,4 +21,8 @@
     return self;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"KZGPSCoordinate(latitude: %3.3f, longitude: %3.3f)", self.latitude, self.longitude];
+}
+
 @end

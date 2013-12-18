@@ -21,4 +21,8 @@
     return self;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"KZPosition(rightAscention: %3.3f, declination: %3.3f", self.rightAscention, self.declination];
+}
+
 @end

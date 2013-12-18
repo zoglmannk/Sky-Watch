@@ -139,6 +139,7 @@ static const double K1 = 15.0 * DR * 1.0027379;
     ret.moonTomorrow.ageInDays = [self calculateMoonsAgeWithJulianDate:(julianDate+2)];
     ret.moonTomorrow.illuminationPercent = [self calculateMoonIlluminationPercentFromAge:ret.moonTomorrow.ageInDays];
     
+    ret.date = date;
     return ret; 
 }
 

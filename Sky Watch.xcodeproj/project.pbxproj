@@ -31,7 +31,6 @@
 		6E1DCF26185507B4009885A7 /* KZGPSCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF25185507B4009885A7 /* KZGPSCoordinate.m */; };
 		6E1DCF29185533BD009885A7 /* KZMoonEventTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF28185533BD009885A7 /* KZMoonEventTests.m */; };
 		6E1DCF2B18553F9A009885A7 /* KZPositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF2A18553F9A009885A7 /* KZPositionTests.m */; };
-		6E1DCF2F1855432C009885A7 /* KZSimpleDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF2E1855432C009885A7 /* KZSimpleDateTests.m */; };
 		6E1DCF31185543A4009885A7 /* KZSimpleTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF30185543A4009885A7 /* KZSimpleTimeTests.m */; };
 		6E1DCF3318554659009885A7 /* KZGPSCoordinateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF3218554659009885A7 /* KZGPSCoordinateTests.m */; };
 		6E1DCF3518555AF7009885A7 /* KZCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1DCF3418555AF7009885A7 /* KZCalculatorTests.m */; };
@@ -43,6 +42,16 @@
 		6E1DCF4118557219009885A7 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF4018557219009885A7 /* CoreMotion.framework */; };
 		6E1DCF431855722F009885A7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF421855722F009885A7 /* CFNetwork.framework */; };
 		6E1DCF451855723B009885A7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF441855723B009885A7 /* MessageUI.framework */; };
+		6E262FFA185D4BB10084A012 /* KZPebbleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E262FF9185D4BB10084A012 /* KZPebbleController.m */; };
+		6E262FFD185E1A820084A012 /* KZPebbleDataChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E262FFC185E1A820084A012 /* KZPebbleDataChunk.m */; };
+		6E6BAC74185E63920055D0CF /* KZSimpleDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BAC73185E63920055D0CF /* KZSimpleDateTests.m */; };
+		6E6BAC76185E79F10055D0CF /* KZPebbleDataChunkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BAC75185E79F10055D0CF /* KZPebbleDataChunkTests.m */; };
+		6E6BAC77185E81550055D0CF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF441855723B009885A7 /* MessageUI.framework */; };
+		6E6BAC78185E81640055D0CF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF421855722F009885A7 /* CFNetwork.framework */; };
+		6E6BAC79185E81780055D0CF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF3C185571FD009885A7 /* libz.dylib */; };
+		6E6BAC7A185E81D60055D0CF /* PebbleKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF3618557142009885A7 /* PebbleKit.framework */; };
+		6E6BAC7B185E81DD0055D0CF /* PebbleVendor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1DCF3818557198009885A7 /* PebbleVendor.framework */; };
+		6E6BAC7D185FDFB10055D0CF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6BAC7C185FDFB10055D0CF /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +102,6 @@
 		6E1DCF25185507B4009885A7 /* KZGPSCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZGPSCoordinate.m; sourceTree = "<group>"; };
 		6E1DCF28185533BD009885A7 /* KZMoonEventTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZMoonEventTests.m; sourceTree = "<group>"; };
 		6E1DCF2A18553F9A009885A7 /* KZPositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZPositionTests.m; sourceTree = "<group>"; };
-		6E1DCF2E1855432C009885A7 /* KZSimpleDateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZSimpleDateTests.m; sourceTree = "<group>"; };
 		6E1DCF30185543A4009885A7 /* KZSimpleTimeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZSimpleTimeTests.m; sourceTree = "<group>"; };
 		6E1DCF3218554659009885A7 /* KZGPSCoordinateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZGPSCoordinateTests.m; sourceTree = "<group>"; };
 		6E1DCF3418555AF7009885A7 /* KZCalculatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZCalculatorTests.m; sourceTree = "<group>"; };
@@ -105,6 +113,13 @@
 		6E1DCF4018557219009885A7 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		6E1DCF421855722F009885A7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		6E1DCF441855723B009885A7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		6E262FF8185D4BB10084A012 /* KZPebbleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZPebbleController.h; sourceTree = "<group>"; };
+		6E262FF9185D4BB10084A012 /* KZPebbleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZPebbleController.m; sourceTree = "<group>"; };
+		6E262FFB185E1A820084A012 /* KZPebbleDataChunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZPebbleDataChunk.h; sourceTree = "<group>"; };
+		6E262FFC185E1A820084A012 /* KZPebbleDataChunk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZPebbleDataChunk.m; sourceTree = "<group>"; };
+		6E6BAC73185E63920055D0CF /* KZSimpleDateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZSimpleDateTests.m; sourceTree = "<group>"; };
+		6E6BAC75185E79F10055D0CF /* KZPebbleDataChunkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZPebbleDataChunkTests.m; sourceTree = "<group>"; };
+		6E6BAC7C185FDFB10055D0CF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E6BAC7D185FDFB10055D0CF /* CoreLocation.framework in Frameworks */,
 				6E1DCF451855723B009885A7 /* MessageUI.framework in Frameworks */,
 				6E1DCF431855722F009885A7 /* CFNetwork.framework in Frameworks */,
 				6E1DCF4118557219009885A7 /* CoreMotion.framework in Frameworks */,
@@ -130,6 +146,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E6BAC7B185E81DD0055D0CF /* PebbleVendor.framework in Frameworks */,
+				6E6BAC7A185E81D60055D0CF /* PebbleKit.framework in Frameworks */,
+				6E6BAC79185E81780055D0CF /* libz.dylib in Frameworks */,
+				6E6BAC78185E81640055D0CF /* CFNetwork.framework in Frameworks */,
+				6E6BAC77185E81550055D0CF /* MessageUI.framework in Frameworks */,
 				6E0347A0185413290080CE5D /* XCTest.framework in Frameworks */,
 				6E0347A2185413290080CE5D /* UIKit.framework in Frameworks */,
 				6E0347A1185413290080CE5D /* Foundation.framework in Frameworks */,
@@ -161,6 +182,7 @@
 		6E03477F185413280080CE5D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E6BAC7C185FDFB10055D0CF /* CoreLocation.framework */,
 				6E1DCF441855723B009885A7 /* MessageUI.framework */,
 				6E1DCF421855722F009885A7 /* CFNetwork.framework */,
 				6E1DCF4018557219009885A7 /* CoreMotion.framework */,
@@ -182,6 +204,10 @@
 			children = (
 				6E03478F185413280080CE5D /* KZAppDelegate.h */,
 				6E034790185413280080CE5D /* KZAppDelegate.m */,
+				6E262FF8185D4BB10084A012 /* KZPebbleController.h */,
+				6E262FF9185D4BB10084A012 /* KZPebbleController.m */,
+				6E262FFB185E1A820084A012 /* KZPebbleDataChunk.h */,
+				6E262FFC185E1A820084A012 /* KZPebbleDataChunk.m */,
 				6E034792185413280080CE5D /* Main.storyboard */,
 				6E034795185413280080CE5D /* KZViewController.h */,
 				6E034796185413280080CE5D /* KZViewController.m */,
@@ -206,8 +232,9 @@
 		6E0347A5185413290080CE5D /* Sky WatchTests */ = {
 			isa = PBXGroup;
 			children = (
-				6E1DCF2718553371009885A7 /* Calculation Related */,
+				6E6BAC75185E79F10055D0CF /* KZPebbleDataChunkTests.m */,
 				6E0347AB185413290080CE5D /* Sky_WatchTests.m */,
+				6E1DCF2718553371009885A7 /* Calculation Related */,
 				6E0347A6185413290080CE5D /* Supporting Files */,
 			);
 			path = "Sky WatchTests";
@@ -250,10 +277,10 @@
 			children = (
 				6E1DCF28185533BD009885A7 /* KZMoonEventTests.m */,
 				6E1DCF2A18553F9A009885A7 /* KZPositionTests.m */,
-				6E1DCF2E1855432C009885A7 /* KZSimpleDateTests.m */,
 				6E1DCF30185543A4009885A7 /* KZSimpleTimeTests.m */,
 				6E1DCF3218554659009885A7 /* KZGPSCoordinateTests.m */,
 				6E1DCF3418555AF7009885A7 /* KZCalculatorTests.m */,
+				6E6BAC73185E63920055D0CF /* KZSimpleDateTests.m */,
 			);
 			name = "Calculation Related";
 			sourceTree = "<group>";
@@ -361,7 +388,9 @@
 			files = (
 				6E1DCF231854DE9A009885A7 /* KZMoonEvent.m in Sources */,
 				6E1DCF1118542261009885A7 /* KZCalculator.m in Sources */,
+				6E262FFA185D4BB10084A012 /* KZPebbleController.m in Sources */,
 				6E1DCF1D1854DC03009885A7 /* KZResult.m in Sources */,
+				6E262FFD185E1A820084A012 /* KZPebbleDataChunk.m in Sources */,
 				6E1DCF201854DC4A009885A7 /* KZEvent.m in Sources */,
 				6E03478D185413280080CE5D /* main.m in Sources */,
 				6E1DCF1A1854D7C4009885A7 /* KZSimpleTime.m in Sources */,
@@ -377,12 +406,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E6BAC76185E79F10055D0CF /* KZPebbleDataChunkTests.m in Sources */,
 				6E1DCF2B18553F9A009885A7 /* KZPositionTests.m in Sources */,
 				6E1DCF29185533BD009885A7 /* KZMoonEventTests.m in Sources */,
 				6E1DCF31185543A4009885A7 /* KZSimpleTimeTests.m in Sources */,
-				6E1DCF2F1855432C009885A7 /* KZSimpleDateTests.m in Sources */,
 				6E1DCF3518555AF7009885A7 /* KZCalculatorTests.m in Sources */,
 				6E0347AC185413290080CE5D /* Sky_WatchTests.m in Sources */,
+				6E6BAC74185E63920055D0CF /* KZSimpleDateTests.m in Sources */,
 				6E1DCF3318554659009885A7 /* KZGPSCoordinateTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +530,7 @@
 		6E0347B0185413290080CE5D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -520,6 +551,7 @@
 		6E0347B1185413290080CE5D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -546,6 +578,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"/Users/kaz/Desktop/Sky\\ Watch",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sky Watch/Sky Watch-Prefix.pch";
@@ -569,6 +602,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"/Users/kaz/Desktop/Sky\\ Watch",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sky Watch/Sky Watch-Prefix.pch";
