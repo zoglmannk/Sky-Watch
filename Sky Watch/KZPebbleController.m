@@ -70,7 +70,7 @@
         
         dispatch_semaphore_t sema = dispatch_semaphore_create(0);
         int daysWorthOfData = 14;
-        for(int i=0; i<daysWorthOfData; i++) {
+        for(int i=-1; i<daysWorthOfData; i++) {
 
             components.day = i;
             NSDate *date = [gregorian dateByAddingComponents:components toDate:today options:0];
@@ -85,13 +85,13 @@
                 
                 switch(j) {
                     case 0:
-                        update = [[KZPebbleDataChunk new] encodeChunk1:result slot:i];
+                        update = [[KZPebbleDataChunk new] encodeChunk1:result slot:i+1];
                         break;
                     case 1:
-                        update = [[KZPebbleDataChunk new] encodeChunk2:result slot:i];
+                        update = [[KZPebbleDataChunk new] encodeChunk2:result slot:i+1];
                         break;
                     case 2:
-                        update = [[KZPebbleDataChunk new] encodeChunk3:result slot:i];
+                        update = [[KZPebbleDataChunk new] encodeChunk3:result slot:i+1];
                         break;
                     default:
                         [NSException raise:@"Impossible" format:@"j is unexpectedly %d", j];
