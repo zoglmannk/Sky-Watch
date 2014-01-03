@@ -33,8 +33,17 @@
         self.locationManager.delegate = self;
     }
     [self.locationManager startUpdatingLocation];
+    
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 
 }
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+
 
 - (IBAction)connectionButtonClick:(id)sender {
     NSLog(@"The User clicked the connect button!");

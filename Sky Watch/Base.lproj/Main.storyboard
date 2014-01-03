@@ -16,6 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-iPhone5" translatesAutoresizingMaskIntoConstraints="NO" id="nnw-8x-Haj">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FjO-A6-wMl" userLabel="Connection - Button">
                                 <rect key="frame" x="118" y="493" width="85" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -33,15 +37,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="nnw-8x-Haj" firstAttribute="centerX" secondItem="FjO-A6-wMl" secondAttribute="centerX" id="DhD-cb-T3m"/>
                             <constraint firstItem="FjO-A6-wMl" firstAttribute="top" secondItem="rVZ-D2-xYd" secondAttribute="bottom" constant="8" id="Lhv-sH-QQv"/>
                             <constraint firstItem="wEX-cw-Mcl" firstAttribute="top" secondItem="rVZ-D2-xYd" secondAttribute="bottom" constant="83" id="T3H-Gb-j6T"/>
                             <constraint firstItem="wEX-cw-Mcl" firstAttribute="top" secondItem="FjO-A6-wMl" secondAttribute="bottom" constant="39" id="ZU1-6N-3Bx"/>
                             <constraint firstAttribute="centerX" secondItem="FjO-A6-wMl" secondAttribute="centerX" id="nKF-Uh-zIk"/>
+                            <constraint firstItem="wEX-cw-Mcl" firstAttribute="top" secondItem="nnw-8x-Haj" secondAttribute="bottom" id="xLz-IU-HTd"/>
                             <constraint firstAttribute="centerX" secondItem="rVZ-D2-xYd" secondAttribute="centerX" id="zau-Aq-I4R"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="connectionButton" destination="FjO-A6-wMl" id="CXj-Dp-DD1"/>
                         <outlet property="connectionLabel" destination="rVZ-D2-xYd" id="dml-yB-KD4"/>
@@ -51,6 +59,9 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="background-iPhone5" width="320" height="568"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
