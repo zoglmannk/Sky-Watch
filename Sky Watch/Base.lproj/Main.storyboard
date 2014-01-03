@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FjO-A6-wMl" userLabel="Connection - Button">
-                                <rect key="frame" x="119" y="493" width="85" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FjO-A6-wMl" userLabel="Connection - Button">
+                                <rect key="frame" x="118" y="493" width="85" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Send Data"/>
@@ -25,8 +25,8 @@
                                     <action selector="connectionButtonClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ION-AD-AUL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waiting..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVZ-D2-xYd">
-                                <rect key="frame" x="81" y="464" width="158" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVZ-D2-xYd">
+                                <rect key="frame" x="124" y="464" width="72" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -34,6 +34,13 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FjO-A6-wMl" firstAttribute="top" secondItem="rVZ-D2-xYd" secondAttribute="bottom" constant="8" id="Lhv-sH-QQv"/>
+                            <constraint firstItem="wEX-cw-Mcl" firstAttribute="top" secondItem="rVZ-D2-xYd" secondAttribute="bottom" constant="83" id="T3H-Gb-j6T"/>
+                            <constraint firstItem="wEX-cw-Mcl" firstAttribute="top" secondItem="FjO-A6-wMl" secondAttribute="bottom" constant="39" id="ZU1-6N-3Bx"/>
+                            <constraint firstAttribute="centerX" secondItem="FjO-A6-wMl" secondAttribute="centerX" id="nKF-Uh-zIk"/>
+                            <constraint firstAttribute="centerX" secondItem="rVZ-D2-xYd" secondAttribute="centerX" id="zau-Aq-I4R"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="connectionButton" destination="FjO-A6-wMl" id="CXj-Dp-DD1"/>
